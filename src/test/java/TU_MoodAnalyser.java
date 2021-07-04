@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TU_MoodAnalyser {
+import static org.junit.jupiter.api.Assertions.*;
+
+class MoodAnalyserTest {
+
     //UC1-TC1.1
     @Test
     void givenIAmInSadMood_shouldReturnSad() {
@@ -25,10 +28,19 @@ public class TU_MoodAnalyser {
         String mood = moodAnalyser.analyseMood();
         Assertions.assertEquals(mood, "SAD");
     }
+
     //UC1-TC-1.2 Repeat
     @Test
     void givenIAmInHappyMood_shouldReturnHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in happy mood");
+        String mood = moodAnalyser.analyseMood();
+        Assertions.assertEquals(mood, "HAPPY");
+    }
+
+    //UC2.1 - given Null exception return HAPPY
+    @Test
+    void givenNullException_shouldReturnHappy() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
         String mood = moodAnalyser.analyseMood();
         Assertions.assertEquals(mood, "HAPPY");
     }
